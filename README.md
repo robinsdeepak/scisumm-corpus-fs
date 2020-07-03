@@ -1,6 +1,6 @@
 # README 
 
-# (scisumm-corpus @ https://github.com/WING-NUS/scisumm-corpus)
+(scisumm-corpus @ https://github.com/WING-NUS/scisumm-corpus)
 
 This package contains a release of training and test topics to aid in 
 the development of computational linguistics summarization systems.
