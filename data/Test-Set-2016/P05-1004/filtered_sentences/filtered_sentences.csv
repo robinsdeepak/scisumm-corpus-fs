@@ -1,0 +1,36 @@
+id,sentence
+2,The limited coverage of lexical-semantic resources is a significant problem for nlp systems which can be alleviated by automatically classifying the unknown words.
+5,"We describe an unsupervised approach, based on vector-space similarity, which does not require annotated examples but significantly outperforms their tagger."
+13,"Also, lexical- semantic resources suffer from: bias towards concepts and senses from particular topics."
+16,Ciaramita and johnson (2003) found that common nouns missing from wordnet 1.6 occurred every 8 sentences in the bllip corpus.
+21,"Broad semantic classification is currently used by lexicographers to or- ganise the manual insertion of words into wordnet, and is an experimental precursor to automatically inserting words directly into the wordnet hierarchy."
+24,"Instead, we use vector-space similarity to retrieve a number of synonyms for each unknown common noun."
+29,"There are 26 broad semantic classes employed by lexicographers in the initial phase of inserting words into the wordnet hierarchy, called lexicographer files (lex- files)."
+39,Ciaramita (2002) has produced a mini- wordnet by manually reducing the wordnet hierarchy to 106 broad categories.
+43,"These topic distinctions are coarser-grained than wordnet senses, which have been criticised for being too difficult to distinguish even for experts."
+44,Ciaramita and johnson (2003) believe that the key sense distinctions are still maintained by supersenses.
+45,"They suggest that supersense tagging is similar to named entity recognition, which also has a very small set of categories with similar granularity (e.g"
+48,"Once this task is solved successfully, it may be possible to insert words directly into the fine-grained distinctions of the hierarchy itself."
+52,A considerable amount of research addresses structurally and statistically manipulating the hierarchy of word- net and the construction of new wordnets using the concept structure from english.
+53,"For lexical freenet, beefer- man (1998) adds over 350 000 collocation pairs (trigger pairs) extracted from a 160 million word corpus of broadcast news using mutual information."
+55,Caraballo and charniak (1999) have explored determining noun specificity from raw text.
+63,"These categories are used to label paragraphs with topics, effectively repeating yarowsky’s (1992) experiments using the their categories rather than roget’s thesaurus."
+64,"Schu¨ tze’s (1992) wordspace system was used to add topical links, such as between ball, racquet and game (the tennis problem)."
+65,"Further, they also use the same vector-space techniques to label previously unseen words using the most common class assigned to the top 20 synonyms for that word."
+66,Widdows (2003) uses a similar technique to insert words into the wordnet hierarchy.
+72,Ciaramita and johnson (2003) propose a very natural evaluation for supersense tagging: inserting the extra common nouns that have been added to a new version of wordnet.
+97,This hypothesis suggests that semantic similarity can be measured by comparing the contexts each word appears in.
+101,Curran and moens (2002b) compared several context extraction methods and found that the shallow pipeline and grammatical relation extraction used in sextant was both extremely fast and produced high-quality results.
+103,The efficiency of the sextant approach makes the extraction of contextual information from over 2 billion words of raw text feasible.
+110,"Curran and moens (2002a) introduced the ttest weight function, which is used in collocation extraction."
+165,The problem now becomes how to convert the ranked list of extracted synonyms for each unknown noun into a single supersense selection.
+176,"A related question is whether to use all of the extracted synonyms, or perhaps filter out synonyms for which a small amount of contextual information has been extracted, and so might be unreliable."
+179,Another alternative is to only consider unambiguous synonyms with a single supersense in wordnet.
+180,"A disadvantage of this similarity approach is that it requires full synonym extraction, which compares the unknown word against a large number of words when, in s y s t e m w n 1.6 w n 1.7 .1 cia ra mit a an d joh nso n bas eli ne 2 1 % 2 8 % cia ra mit a an d joh nso n per cep tro n 5 3 % 5 3 % si mil arit y bas ed res ult s 6 8 % 6 3 % table 6: summary of supersense tagging accuracies fact, we want to calculate the similarity to a small number of supersenses."
+211,"These results also support ciaramita and johnson’s view that abstract concepts like communication, cognition and state are much harder."
+212,"We would expect the location supersense to perform well since it is quite concrete, but unfortunately our synonym extraction system does not incorporate proper nouns, so many of these words were classified using the hand-built classifier."
+214,An alternative approach worth exploring is to create context vectors for the supersense categories themselves and compare these against the words.
+216,"In the current system, we must compare a word against the entire vocabulary (over 500 000 headwords), which is much less efficient than a comparison against only 26 supersense context vectors."
+226,"A final solution would be to consider a large set of the canonical attributes (curran and moens, 2002a) to represent each supersense."
+233,"Finally, we plan to implement a supervised machine learner to replace the fall- back method, which currently has an accuracy of 37% on the wordnet 1.7.1 test set."
+244,This application of semantic similarity demonstrates that an unsupervised methods can outperform supervised methods for some nlp tasks if enough data is available.

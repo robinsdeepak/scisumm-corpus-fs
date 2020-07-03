@@ -1,0 +1,39 @@
+id,sentence
+3,"We propose an unsupervised method to discover paraphrases from a large untagged corpus, without requiring any seed phrase or other cue."
+9,One of the difficulties in natural language processing is the fact that there are many ways to express the same thing or event.
+11,"There has been a lot of research on such lexical relations, along with the creation of resources such as wordnet."
+14,"Recently, this topic has been getting more attention, as is evident from the paraphrase workshops in 2003 and 2004, driven by the needs of various nlp applications."
+15,"For example, in information retrieval (ir), we have to match a user’s query to the expressions in the desired documents, while in question answering (qa), we have to find the answer to the user’s question even if the formulation of the answer in the document is different from the question."
+18,"We realize the importance of paraphrase; however, the major obstacle is the construction of paraphrase knowledge."
+19,"For example, we can easily imagine that the number of paraphrases for “a buys b” is enormous and it is not possible to create a comprehensive inventory by hand."
+21,"Up to now, most ie researchers have been creating paraphrase knowledge (or ie patterns) by hand and for specific tasks."
+22,"So, there is a limitation that ie can only be performed for a predefined task, like “corporate mergers” or “management succession”."
+25,"In this paper, we will propose an unsupervised method to discover paraphrases from a large untagged corpus."
+27,"After tagging a large corpus with an automatic ne tagger, the method tries to find sets of paraphrases automatically without being given a seed phrase or any kinds of cue."
+36,"The “company – company” domain, which we will call cc- domain (step 2)."
+38,"Finally, we find links between sets of phrases, based on the ne instance pair data (for example, different phrases which link “ibm” and “lotus”) (step 4)."
+39,"As we shall see, most of the linked sets are paraphrases."
+44,The ne tagger is a rule-based system with 140 ne categories [sekine et al
+48,The data is sorted based on the frequency of the context (“a unit of” appeared 314 times in the corpus) and the ne pair instances appearing with that context are shown with their frequency (e.g
+80,"As can be seen in the example, the first two phrases have a different order of ne names from the last two, so we can determine that the last two phrases represent a reversed relation."
+92,"As lower frequency examples include noise, we set a threshold that an ne category pair should appear at least 5 times to be considered and an ne instance pair should appear at least twice to be considered."
+95,"For example, in the cc-domain, 96 keywords are found which have tf/itf scores above a threshold; some of them are shown in figure 3."
+114,It is not easy to make a clear definition of “paraphrase”.
+118,"In general, different modalities (“planned to buy”, “agreed to buy”, “bought”) were considered to express the same relationship within an extraction setting."
+125,The accuracy is calculated as the ratio of the number of paraphrases to the total number of phrases in the set.
+136,"As can be seen in figure 3, the phrases in the “agree” set include completely different relationships, which are not paraphrases."
+164,"Instead, we focused on phrases and set the frequency threshold to 2, and so were able to utilize a lot of phrases while minimizing noise."
+166,"04] reported only on relation discovery, but one could easily acquire para phrases from the results."
+168,There have been other kinds of efforts to discover paraphrase automatically from corpora.
+171,Another approach to finding paraphrases is to find phrases which take similar subjects and objects in large corpora by using mutual information of word distribution [lin and pantel 01].
+172,This approach needs a phrase as an initial seed and thus the possible relationships to be extracted are naturally limited.
+173,There has also been work using a bootstrap- ping approach [brin 98; agichtein and gravano 00; ravichandran and hovy 02].
+181,"Sometime, multiple words are needed, like “vice chairman”, “prime minister” or “pay for” (“pay” and “pay for” are different senses in the cc-domain)."
+186,"In our experiment, we set the threshold of the tf/itf score empirically using a small development corpus; a finer adjustment of the threshold could reduce the number of such keywords."
+192,"Using structural information as was explained in the results section, we extracted examples like “smith estimates lotus”, from a sentence like “mr."
+194,"In order to solve this problem, a parse tree is needed to understand that “lotus” is not the object of “estimates”."
+201,Rather we believe several methods have to be developed using different heuristics to discover wider variety of paraphrases.
+207,"Also, expanding on the techniques for the automatic generation of extraction patterns (riloff 96; sudo 03) using our method, the extraction patterns which have the same meaning can be automatically linked, enabling us to produce the final table fully automatically."
+208,"While there are other obstacles to completing this idea, we believe automatic paraphrase discovery is an important component for building a fully automatic information extraction system."
+209,We proposed an unsupervised method to discover paraphrases from a large untagged corpus.
+211,"After tagging a large corpus with an automatic ne tagger, the method tries to find sets of paraphrases automatically without being given a seed phrase or any kind of cue."

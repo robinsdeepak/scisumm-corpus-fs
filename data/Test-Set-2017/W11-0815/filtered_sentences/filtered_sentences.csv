@@ -1,0 +1,28 @@
+id,sentence
+2,The extensive use of multiword expressions (mwe) in natural language texts prompts more detailed studies that aim for a more adequate treatment of these expressions.
+4,"Intuitively, with the appropriate treatment of mwes, the results of an information retrieval (ir) system could be improved."
+5,The aim of this paper is to apply techniques for the automatic extraction of mwes from corpora to index them as a single unit.
+8,"The term “multiword expression” has been used to describe a large set of distinct constructions, for instance support verbs, noun compounds, institutionalized phrases and so on."
+10,(2002) defines mwes as a sequence of words that acts as a single unit at some level of linguistic analysis.
+12,"For instance, even if a standard system capable of identifying boundaries between words, i.e"
+16,"It is estimated that the number of mwes in the lexicon of a native speaker of a language has the same order of magnitude as the number of single words (jackendoff, 1997)."
+18,"In this paper, we perform an application-oriented evaluation of the inclusion of mwe treatment into an information retrieval (ir) system."
+19,"Ir systems aim to provide users with quick access to data they are interested (baezayates and ribeironeto, 1999)."
+20,"Although language processing is not vital to modern ir systems, it may be convenient (sparck jones, 1997) and in this scenario, nlp techniques may contribute in the selection of mwes for indexing as single units in the ir system."
+26,"In order to investigate the effects of indexing of mwes for ir, the results of queries are analyzed using ir quality metrics."
+30,"The concept of multiword expression has been widely viewed as a sequence of words that acts as a single unit at some level of linguistic analysis (calzolari et al., 2002), or as idiosyncratic interpretations that cross word boundaries (or spaces) (sag et al., 2002)."
+31,"One of the great challenges of nlp is the identification of such expressions, “hidden” in texts of various genres."
+36,The automatic discovery of specific types of mwes has attracted the attention of many researchers in nlp over the past years.
+38,"In terms of practical mwe identification systems, a well known approach is that of smadja (1993), who uses a set of techniques based on statistical methods, calculated from word frequencies, to identify mwes in corpora."
+39,This approach is implemented in a lexico- graphic tool called xtract.
+40,"More recently there has been the release of the mwetoolkit (ramisch et al., 2010) for the automatic extraction of mwes from monolingual corpora, that both generates and validates mwe candidates."
+42,"Several other researchers have proposed a number of computational techniques that deal with the discovery of mwes: baldwin and villavicencio (2002) for verb-particle constructions, pearce (2002) and evert and krenn (2005) for collocations, nicholson and baldwin (2006) for compound nouns and many others."
+57,This task aimed to explore the contribution of the disambiguation of words to bilingual or monolingual ir.
+67,"Porter’s stemmer (porter, 1997) as implemented in zettair was also used."
+81,"In order to incorporate mwes as units for the ir system to index, we adopted a very simple heuristics that concatenated together all terms composing an mwe using “ ” (e.g"
+85,The rationale was that documents containing specific mwes can be indexed more adequately than those containing the words of the expression separately.
+87,"<term id=""gh950102000000-126"" lema=""underworld"" pos=""nn""> <wf>underworld</wf> <synset score=""0.5"" code=""06120171-n""/> <synset score=""0.5"" code=""06327598-n""/> </term> original topic: - what was the role of the hubble telescope in proving the existence of black holes?"
+187,12 36 table 6: results - evaluation b was somewhat expected since the mwes in that dictionary are considered “real” mwes.
+231,"This work consists in investigating the impact of multiword expressions on applications, focusing on compound nouns in information retrieval systems, and whether a more adequate treatment for these expressions can bring possible improvements in the indexing these expressions."
+233,In this work we aimed at achieving a better understanding of several important points associated with the use of multiword expressions in ir systems.
+237,We conclude also that the quality of mwes used directly influenced the results.

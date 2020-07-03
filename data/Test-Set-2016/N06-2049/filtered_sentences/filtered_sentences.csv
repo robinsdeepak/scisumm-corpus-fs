@@ -1,0 +1,64 @@
+id,sentence
+2,We proposed two approaches to improve chinese word segmentation: a subword-based tagging and a confidence measure approach.
+3,"We found the former achieved better performance than the existing character-based tagging, and the latter improved segmentation further by combining the former with a dictionary-based segmentation."
+5,"By these techniques we achieved higher f-scores in cityu, pku and msr corpora than the best results from sighan bakeoff 2005."
+6,"The character-based “iob” tagging approach has been widely used in chinese word segmentation recently (xue and shen, 2003; peng and mccallum, 2004; tseng et al., 2005)."
+7,"Under the scheme, each character of a word is labeled as ‘b’ if it is the first character of a multiple-character word, or ‘o’ if the character functions as an independent word, or ‘i’ otherwise.” for example, ” (whole) (beijing city)” is labeled as ” (whole)/o (north)/b (capital)/i (city)/i”."
+8,We found that so far all the existing implementations were using character-based iob tagging.
+9,"In this work we propose a subword-based iob tagging, which assigns tags to a predefined lexicon subset consisting of the most frequent multiple-character words in addition to single chinese characters."
+10,"If only chinese characters are used, the subword-based iob tagging is downgraded into a character-based one."
+11,"Taking the same example mentioned above, “ (whole) (beijing city)” is labeled as ” (whole)/o (beijing)/b (city)/i” in the subword-based tagging, where ” (beijing)/b” is labeled as one unit."
+15,"In the results of the closed test in bakeoff 2005 (emerson, 2005), the work of (tseng et al., 2005), using conditional random fields (crf) for the iob tagging, yielded very high r-oovs in all of the four corpora used, but the r-iv rates were lower."
+17,In this work we propose a confidence measure approach to lessen the weakness.
+18,By this approach we can change r-oovs and r-ivs and find an optimal tradeoff.
+27,"Since the dictionary-based approach is a well-known method, we skip its technical descriptions."
+28,"However, keep in mind that the dictionary-based approach can produce a higher r-iv rate."
+31,There are several steps to train a subword-based iob tag- ger.
+35,"If the subset consists of chinese characters only, it is a character-based iob tagger."
+38,"For a character-based iob tagger, there is only one possibility of re-segmentation."
+39,"However, there are multiple choices for a subword-based iob tagger."
+42,We did not conduct comparative experiments because trivial differences of these approaches may not result in significant consequences to the subword-based ap proach.
+43,"In the third step, we used the crfs approach to train the iob tagger (lafferty et al., 2001) on the training data."
+49,The subscripts are position indicators.
+51,"For the bigram features, we only used the previous and the current observations, t−1 t0"
+58,The dictionary-based segmentation produced results with higher r-ivs but lower r-oovs while the iob tagging yielded the contrary results.
+59,In this section we introduce a confidence measure approach to combine the two results.
+60,"We define a confidence measure, c m(tiob |w), to measure the confidence of the results produced by the iob tagging by using the results from the dictionary-based segmentation."
+62,"Its calculation is defined as: c m(tiob |w) = αc miob (tiob |w) + (1 − α)δ(tw , tiob )ng (2) where tiob is the word w’s iob tag assigned by the iob tagging; tw , a prior iob tag determined by the results of the dictionary-based segmentation."
+63,"After the dictionary- based word segmentation, the words are re-segmented into subwords by fmm before being fed to iob tagging."
+64,"Each subword is given a prior iob tag, tw"
+65,"C miob (t|w), a  m  confidence probability derived in the process of iob tag exp )' )' λk fk (ti−1 , ti , w ) + )' µk gk (ti , w ) /z,  i=1  k k   (1) ging, is defined as z = )' t =t0 t1 ···tm p(t |w ) c miob (t|w ) = l,t =t0 t1 ···tm ,ti =t p(t |w, wi ) t =t 0 t1 ··· tm p ( t | w ) where we call fk (ti−1 , ti , w ) bigram feature functions because the features trigger the previous observation ti−1 where the numerator is a sum of all the observation sequences with word wi labeled as t"
+66,"Δ(tw , tiob )ng denotes the contribution of the dictionary- based segmentation."
+68,"2, α is a weighting between the iob tagging and the dictionary-based word segmentation."
+71,"A confidence measure threshold, t, was defined for making a decision based on the value."
+72,"If the value was lower than t, the iob tag was rejected and the dictionary-based segmentation was used; otherwise, the iob tagging segmentation was used."
+77,We used the data provided by sighan bakeoff 2005 to test our approaches described in the previous sections.
+82,"Of the corpora and these scores, refer to (emerson, 2005)."
+83,"For the dictionary-based approach, we extracted a word list from the training data as the vocabulary."
+85,Table 1 shows the performance of the dictionary-based segmentation.
+87,"In fact, there were no oov recognition."
+94,"The segmentation results of the dictionary-based were re-segmented table 1: our segmentation results by the dictionary- based approach for the closed test of bakeoff 2005, very low r-oov rates due to no oov recognition applied."
+99,71 6 0.9 64 0.9 72 table 2: segmentation results by a pure subword-based iob tagging.
+101,"Using the fmm, and then labeled with “iob” tags by the crfs."
+102,"The segmentation results using crf tagging are shown in table 2, where the upper numbers of each slot were produced by the character-based approach while the lower numbers were of the subword-based."
+103,"We found that the proposed subword-based approaches were effective in cityu and msr corpora, raising the f-scores from 0.941 to 0.946 for cityu corpus, 0.959 to 0.964 for msr corpus."
+105,"Comparing table 1 and 2, we found the crf-modeled iob tagging yielded better segmentation than the dictionary- based approach."
+109,"In section 2.2, we proposed a confidence measure approach to reevaluate the results of iob tagging by combinations of the results of the dictionary-based segmentation."
+117,71 2 0.9 67 0.9 76 table 3: effects of combination using the confidence measure.
+120,95 1 table 4: comparison our results with the best ones from sighan bakeoff 2005 in terms of f-score ivs than table 2.
+121,"Even with the use of confidence measure, the word- based iob tagging still outperformed the character-based iob tagging."
+122,It proves the proposed word-based iob tagging was very effective.
+123,The iob tagging approach adopted in this work is not a new idea.
+124,"It was first used in chinese word segmentation by (xue and shen, 2003), where maximum entropy methods were used."
+125,"Later, this approach was implemented by the crf-based method (peng and mccallum, 2004), which was proved to achieve better results than the maximum entropy approach because it can solve the label bias problem (lafferty et al., 2001)."
+127,We proved the new approach enhanced the word segmentation significantly.
+128,Our results are listed together with the best results from bakeoff 2005 in table 4 in terms of f-scores.
+129,"We achieved the highest f-scores in cityu, pku and msr corpora."
+130,We think our proposed subword- based tagging played an important role for the good results.
+134,"For as corpus, “adam smith” are two words in the training but become a one- word in the test, “adamsmith”."
+137,The subword-based approach is faster because fewer words than characters were labeled.
+141,"By way of the confidence measure we combined results from the dictionary-based and the iob-tagging-based and as a result, we could achieve the optimal performance."
+142,"In this work, we proposed a subword-based iob tagging method for chinese word segmentation."
+143,"Using the crfs approaches, we prove that it outperformed the character- based method using the crf approaches."
+144,We also successfully employed the confidence measure to make a confidence-dependent word segmentation.
+145,This approach is effective for performing desired segmentation based on users’ requirements to r-oov and r-iv.

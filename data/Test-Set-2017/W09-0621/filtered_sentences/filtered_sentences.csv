@@ -1,0 +1,27 @@
+id,sentence
+2,"For developing a data-driven text rewriting algorithm for paraphrasing, it is essential to have a monolingual corpus of aligned paraphrased sentences."
+3,"News article headlines are a rich source of paraphrases; they tend to describe the same event in various different ways, and can easily be obtained from the web."
+4,"We compare two methods of aligning headlines to construct such an aligned corpus of paraphrases, one based on clustering, and the other on pairwise similarity-based matching."
+5,We show that the latter performs best on the task of aligning paraphrastic headlines.
+10,"While there are various resources available that capture such knowledge at the word level (e.g., synset knowledge in wordnet), this kind of information is much harder to get by at the phrase level."
+12,"Paraphrase generation has already proven to be valuable for question answering (lin and pantel, 2001; riezler et al., 2007), machine translation (callisonburch et al., 2006) and the evaluation thereof (russolassner et al., 2006; kauchak and barzilay, 2006; zhou et al., 2006), but also for text simplification and explanation."
+13,"In the study described in this paper, we make an effort to collect dutch paraphrases from news article headlines in an unsupervised way to be used in future paraphrase generation."
+17,We use this method to collect a large amount of aligned paraphrases in an automatic fashion.
+19,"Considering the fact that this corpus will be the basic resource of a paraphrase generation system, we need it to be as free of errors as possible, because errors will propagate throughout the system."
+20,This implies that we focus on obtaining a high precision in the paraphrases collection process.
+22,"We think this approach will enable us to harvest reliable training material for paraphrase generation quickly and efficiently, without having to worry too much about the problems that arise when trying to align complete news articles."
+23,For the development of our system we use data which was obtained in the daeso-project.
+41,Our first approach is to use a clustering algorithm to cluster similar headlines.
+44,The k-means algorithm is an algorithm that assigns k centers to represent the clustering of n points (k < n) in a vector space.
+50,"Instead of a word overlap measure as used byhere, c r is a criterion function, which mea sures the ratio of withincluster similarity to betweencluster similarity."
+52,"To find the optimal threshold value for cluster- stopping, optimization is performed on the development data."
+60,"Through optimization on our development set, we find an optimal threshold for the pk1 algorithm thpk1 = 1."
+61,"For each original cluster, k-means clustering is then performed using the k found by the cluster stopping function."
+64,Our second approach is to calculate the similarity between pairs of headlines directly.
+67,"However, as barzilay and elhadad (2003) have pointed out, sentence mapping in this way is only effective to a certain extent."
+74,"Threshold values as found by optimizing on the development data using again an f0.25-score, are t hlower = 0.2 and t hupper = 0.5."
+81,Table 2 displays the paraphrase detection precision and recall of our two approaches.
+82,It is clear that k-means clustering performs well when all unclustered headlines are artificially ignored.
+83,"In the more realistic case when there are also items that cannot be clustered, the pairwise calculation of similarity with a back off strategy of using context performs better when we aim for higher precision."
+85,"Using headlines of news articles clustered by google news, and finding good paraphrases within these clusters is an effective route for obtaining pairs of paraphrased sentences with reasonable precision."
+91,We measure the performance of our approaches by comparing to human annotation of sub- clusterings.

@@ -1,0 +1,82 @@
+id,sentence
+3,"This paper investigates the incorporation of diverse lexical, syntactic and semantic knowledge in feature-based relation extraction using svm."
+5,This suggests that most of useful information in full parse trees for relation extraction is shallow and can be captured by chunking.
+6,"We also demonstrate how semantic information such as wordnet and name list, can be used in feature-based relation extraction to further improve the performance."
+7,Evaluation on the ace corpus shows that effective incorporation of diverse features enables our system outperform previously best-reported systems on the 24 ace relation subtypes and significantly outperforms tree kernel-based systems by over 20 in f-measure on the 5 ace relation types.
+8,"With the dramatic increase in the amount of textual information available in digital archives and the www, there has been growing interest in techniques for automatically extracting information from text."
+18,"Extraction of semantic relationships between entities can be very useful for applications such as question answering, e.g"
+20,"This paper focuses on the ace rdc task and employs diverse lexical, syntactic and semantic knowledge in feature-based relation extraction using support vector machines (svms)."
+21,"Our study illustrates that the base phrase chunking information contributes to most of the performance inprovement from syntactic aspect while additional full parsing information does not contribute much, largely due to the fact that most of relations defined in ace corpus are within a very short distance."
+22,We also demonstrate how semantic information such as wordnet (miller 1990) and name list can be used in the feature-based framework.
+23,Evaluation shows that the incorporation of diverse features enables our system achieve best reported performance.
+33,The relation extraction task was formulated at the 7th message understanding conference (muc7 1998) and is starting to be addressed more and more within the natural language processing and machine learning communities.
+34,"Miller et al (2000) augmented syntactic full parse trees with semantic information corresponding to entities and relations, and built generative models for the augmented trees."
+35,Zelenko et al (2003) proposed extracting relations by computing kernel functions between parse trees.
+36,Culotta et al (2004) extended this work to estimate kernel functions between augmented dependency trees and achieved 63.2 f-measure in relation detection and 45.8 f-measure in relation detection and classification on the 5 ace relation types.
+37,"Kambhatla (2004) employed maximum entropy models for relation extraction with features derived from word, entity type, mention level, overlap, dependency tree and parse tree."
+39,Zhang (2004) approached relation classification by combining various lexical and syntactic features with bootstrapping on top of support vector machines.
+40,Tree kernel-based approaches proposed by zelenko et al (2003) and culotta et al (2004) are able to explore the implicit feature space without much feature engineering.
+42,"Complicated relation extraction tasks may also impose a big challenge to the modeling approach used by miller et al (2000) which integrates various tasks such as part-of-speech tagging, named entity recognition, template element extraction and relation extraction, in a single model."
+43,"This paper will further explore the feature-based approach with a systematic study on the extensive incorporation of diverse lexical, syntactic and semantic information."
+44,"Compared with kambhatla (2004), we separately incorporate the base phrase chunking information, which contributes to most of the performance improvement from syntactic aspect."
+45,We also show how semantic information like wordnet and name list can be equipped to further improve the performance.
+46,Evaluation on the ace corpus shows that our system outperforms kambhatla (2004) by about 3 f-measure on extracting 24 ace relation subtypes.
+47,It also shows that our system outperforms tree kernel-based systems (culotta et al 2004) by over 20 f-measure on extracting 5 ace relation types.
+51,"Therefore, we must extend svms to multi-class (e.g"
+52,K) such as the ace rdc task.
+56,"Moreover, we only apply the simple linear kernel, although other kernels can peform better."
+58,"In this paper, we use the binary-class svmlight2 deleveloped by joachims (1998)."
+60,For multi-class classification.
+61,"However, this paper only uses the binary-class version."
+64,"In addition, we distinguish the argument order of the two mentions (m1 for the first mention and m2 for the second mention), e.g"
+67,"For each pair of mentions3, we compute various lexical, syntactic and semantic features."
+85,"This feature considers the entity level of both the mentions, which can be name, nomial and pronoun: • ml12: combination of mention levels 4.4 overlap."
+90,It is well known that chunking plays a critical role in the template relation task of the 7th message understanding conference (muc7 1998).
+91,The related work mentioned in section 2 extended to explore the information embedded in the full parse trees.
+93,"In this way, we can separately evaluate the contributions of base phrase chunking and full parsing."
+94,"Here, the base phrase chunks are derived from full parse trees using the perl script5 written by sabine buchholz from tilburg university and the collins’ parser (collins 1999) is employed for full parsing."
+96,"Similar to word features, three categories of phrase heads are considered: 1) the phrase heads in between are also classified into three bins: the first phrase head in between, the last phrase head in between and other phrase heads in between; 2) the phrase heads before m1 are classified into two bins: the first phrase head before and the second phrase head before; 3) the phrase heads after m2 are classified into two bins: the first phrase head after and the second phrase head after."
+99,"This category of features includes information about the words, part-of-speeches and phrase labels of the words on which the mentions are dependent in the dependency tree derived from the syntactic full parse tree."
+104,• ptp: path of phrase labels (removing duplicates) connecting m1 and m2 in the parse tree • ptph: path of phrase labels (removing duplicates) connecting m1 and m2 in the parse tree augmented with the head word of the top phrase in the path.
+106,"Semantic information from various resources, such as wordnet, is used to classify important words into different semantic lists according to their indicating relationships."
+111,We also extend the list by collecting the trigger words from the head words of the mentions in the training data according to their indicating relationships.
+114,This paper uses the ace corpus provided by ldc to train and evaluate our feature-based relation extraction system.
+116,"In this paper, we only model explicit relations because of poor inter-annotator agreement in the annotation of implicit relations and their limited number."
+126,"However, the remaining words that do not have above four classes are manually classified."
+127,Ace corpus suffers from a small amount of annotated data for a few subtypes such as the subtype “founder” under the type “role”.
+128,"It also shows that the ace rdc task defines some difficult sub- types such as the subtypes “based-in”, “located” and “residence” under the type “at”, which are difficult even for human experts to differentiate."
+136,Table 2 measures the performance of our relation extrac tion system over the 43 ace relation subtypes on the testing set.
+138,Table 2 also measures the contributions of different features by gradually increasing the feature set.
+145,• chunking features are very useful.
+147,"• to our surprise, incorporating the dependency tree and parse tree features only improve the f- measure by 0.6 and 0.4 respectively."
+148,This may be due to the fact that most of relations in the ace corpus are quite local.
+149,Table 3 shows that about 70% of relations exist where two mentions are embedded in each other or separated by at most one word.
+150,"While short-distance relations dominate and can be resolved by above simple features, the dependency tree and parse tree features can only take effect in the remaining much less long-distance relations."
+151,"However, full parsing is always prone to long distance errors although the collins’ parser used in our system represents the state-of-the-art in full parsing."
+152,• incorporating semantic resources such as the country name list and the personal relative trigger word list further increases the f-measure by 1.5 largely due to the differentiation of the relation subtype “role.citizen-of” from “role.
+154,The effect of personal relative trigger words is very limited due to the limited number of testing instances over personal social relation subtypes.
+159,Other-professional” also suffer from their low occurrences.
+160,It also shows that our system performs best on the subtype “social.parent” and “role.
+161,"This is largely due to incorporation of two semantic resources, i.e"
+162,The country name list and the personal relative trigger word list.
+164,This suggests the difficulty of detecting and classifying the relation type “at” and its subtypes.
+165,Table 5 separates the performance of relation detection from overall performance on the testing set.
+168,It shows that our system achieves better performance by ~3 f-measure largely due to its gain in recall.
+169,It also shows that feature-based methods dramatically outperform kernel methods.
+170,This suggests that feature-based methods can effectively combine different features from a variety of sources (e.g
+172,The tree kernels developed in culotta et al (2004) are yet to be effective on the ace rdc task.
+175,This suggests that relation detection is critical for relation extraction.
+195,5 55 .5 ka mb hat la (20 04) :fe ature bas ed 6 3.
+199,"In this paper, we have presented a feature-based approach for relation extraction where diverse lexical, syntactic and semantic knowledge are employed."
+200,"Instead of exploring the full parse tree information directly as previous related work, we incorporate the base phrase chunking information performance improvement from syntactic aspect while further incorporation of the parse tree and dependence tree information only slightly improves the performance."
+202,"While short-distance relations dominate and can be resolved by simple features such as word and chunking features, the further dependency tree and parse tree features can only take effect in the remaining much less and more difficult long-distance relations."
+203,"Second, it is well known that full parsing is always prone to long-distance parsing errors although the collins’ parser used in our system achieves the state-of-the-art performance."
+205,"Last, effective ways need to be explored to incorporate information embedded in the full collins m."
+213,Dependency tree th parse trees.
+214,"Besides, we also demonstrate how semantic information such as wordnet and name list, can be used in feature-based relation extraction to further improve the performance."
+215,The effective incorporation of diverse features enables our system outperform previously best- reported systems on the ace corpus.
+216,"Although tree kernel-based approaches facilitate the exploration of the implicit feature space with the parse tree structure, yet the current technologies are expected to be further advanced to be effective for relatively complicated relation extraction tasks such as the one defined in ace where 5 types and 24 subtypes need to be extracted."
+217,"Evaluation on the ace rdc task shows that our approach of combining various kinds of evidence can scale better to problems, where we have a lot of relation types with a relatively small amount of annotated data."
+219,"In the future work, we will focus on exploring more semantic knowledge in relation extraction, which has not been covered by current research."
+220,"Moreover, our current work is done when the entity detection and tracking (edt) has been perfectly done."
+221,"Therefore, it would be interesting to see how imperfect edt affects the performance in relation extraction."

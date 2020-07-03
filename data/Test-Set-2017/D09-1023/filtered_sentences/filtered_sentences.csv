@@ -1,0 +1,31 @@
+id,sentence
+3,"The core of the approach is a novel decoder based on lattice parsing with quasi- synchronous grammar (smith and eisner, 2006), a syntactic formalism that does not require source and target trees to be isomorphic."
+7,"We have seen rapid recent progress in machine translation through the use of rich features and the development of improved decoding algorithms, often based on grammatical formalisms.1 if we view mt as a machine learning problem, features and formalisms imply structural independence assumptions, which are in turn exploited by efficient inference algorithms, including decoders (koehn et al., 2003; yamada and knight, 2001)."
+9,"Lopez (2009) recently argued for a separation between features/formalisms (and the indepen 1 informally, features are “parts” of a parallel sentence pair and/or their mutual derivation structure (trees, alignments, etc.)."
+15,"Decoding as qg parsing (§3–4): we present anovel decoder based on lattice parsing with quasi synchronous grammar (qg; smith and eisner, 2006).2 further, we exploit generic approximate inference techniques to incorporate arbitrary “non- local” features in the dynamic programming algorithm (chiang, 2007; gimpel and smith, 2009).parameter estimation (§5): we exploit simi lar approximate inference methods in regularized pseudolikelihood estimation (besag, 1975) with hidden variables to discriminatively and efficiently train our model."
+35,"Given a sentence s and its parse tree τs, we formulate the translation on the feasibility of inference, including decoding."
+48,"In a log-linear model over structured objects, the choice of feature functions g has a huge effect 3 we assume in this work that s is parsed."
+71,"In addition, researchers have recently added syntactic features to phrase-based and hierarchical phrase-based models (gimpel and smith, 2008; haque et al., 2009; chiang et al., 2008)."
+78,"In phrase-based systems, reordering is accomplished both within phrase pairs (local reordering) as well as through distance-based distortion models (koehn et al., 2003) and lexicalized reordering models (koehn et al., 2007)."
+83,"Grammars a quasi-synchronous dependency grammar (qdg; smith and eisner, 2006) specifies a conditional model p(t, τt, a | s, τs)."
+85,"We denote this grammar by gs,τs ; its (weighted) language is the set of translations of s"
+90,"As usual, the normalization constant is not required for decoding; it suffices to solve: t , a ) = argmax θ g(s, τ , a, t, τ ) (8)which translations are possible depends heav ily on the configurations that the qdg permits."
+94,(“a(τt(j)) = τs(a(j))” corresponds to their “parent-child” configuration; see fig.
+103,"It equates to finding the most probable derivation under the s/τs-specific grammar gs,τs"
+105,"The advantage offered by this approach (like most other grammar-based translation approaches) is that decoding becomes dynamic programming (dp), a technique that is both widely understood in nlp and for which practical, efficient, generic techniques exist."
+111,The lattice is a weighted “sausage” lattice that permits sentences up to some maximum length £; £ is derived from the source sentence length.
+134,"• a counter of uncovered source words: of the source sentence during translation: all parts f sunc (a) = �n δ(|a−1(i)|, 0)."
+145,Recently chiang (2007) introduced “cube pruning” as an approximate decoding method that extends a dp decoder with the ability to incorporate features that break the markovian independence assumptions dp exploits.
+183,"Let s(j, i, t) denote the sum of all translations rooted at position j in τt such that a(j) = i and tj = t"
+196,"We recently proposed “cube summing,” an approximate technique that permits the use of non-local features for inside dp algorithms (gimpel and smith, 2009)."
+201,"We evaluate translation output using case-insensitive bleu (papineni et al., 2001), as provided by nist, and meteor (banerjee and lavie, 2005), version 0.6, with porter stemming and wordnet synonym matching."
+204,"To obtain lexical translation features gtrans (s, a, t), we use the moses pipeline (koehn et al., 2007)."
+206,We define f lex by the lexical probabilities p(t | s) and p(s | t) estimated from the symmetrized align ments.
+209,"The pseudo- likelihood calculations for a sentence pair, taken together, are faster than (k-best) decoding, making sga’s inner loop faster than mert’s inner loop."
+215,"We end up with a training set of 82,299 sentences, a develop we use features similar to lexicalized cfg events (collins, 1999), specifically following the dependency model of klein and manning (2004)."
+217,"These probabilities are estimated on the training corpus parsed using the stanford factored parser (klein and manning, 2003)."
+232,To obtain the translation lexicon (trans) we first included the top three target words t for each s using p(s | t) × p(t | s) to score target words.
+252,"By contrast, models with syntactic features, which are local in our decoder, perform relatively well even with k = 1."
+267,"The name of each configuration, following smith and eisner (2006), refers to the relationship between a(τt (j)) and a(j) in τs"
+271,"The base “synchronous” model permits parent-child (a(τt(j)) = τs(a(j))), any configuration where a(j) = 0, including both words being linked to null, and requires the root word in τt to be linked to the root word in τs or to null(5 of our 14 configurations)."
+287,Our novel decoder is based on efficient dp-based qg lattice parsing extended to handle “non-local” features using generic techniques that also support efficient parameter estimation.

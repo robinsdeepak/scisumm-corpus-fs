@@ -1,0 +1,62 @@
+id,sentence
+2,We use the margin infused relaxed algorithm of crammer et al
+3,To add a large number of new features to two machine translation systems: the hiero hierarchical phrase- based translation system and our syntax-based translation system.
+11,We add more than 250 features to improve a syntax- based mt system—already the highest-scoring single system in the nist 2008 chineseenglish common-data track—by +1.1 b
+12,"We also add more than 10,000 features to hiero (chiang, 2005) and obtain a +1.5 b improvement."
+15,Thus they widen the advantage that syntax- based models have over other types of models.
+16,"The models are trained using the margin infused relaxed algorithm or mira (crammer et al., 2006) instead of the standard minimum-error-rate training or mert algorithm (och, 2003)."
+17,"Our results add to a growing body of evidence (watanabe et al., 2007; chiang et al., 2008) that mira is preferable to mert across languages and systems, even for very large-scale tasks."
+18,The work of och et al (2004) is perhaps the best- known study of new features and their impact on translation quality.
+20,"First, it used the features for reranking n-best lists of translations, rather than for decoding or forest reranking (huang, 2008)."
+22,"By contrast, we incorporate features directly into hierarchical and syntax- based decoders."
+24,"Others have introduced alternative discriminative training methods (tillmann and zhang, 2006; liang et al., 2006; turian et al., 2007; blunsom et al., 2008; macherey et al., 2008), in which a recurring challenge is scal- ability: to train many features, we need many train 218 human language technologies: the 2009 annual conference of the north american chapter of the acl, pages 218–226, boulder, colorado, june 2009."
+26,"Another line of research (watanabe et al., 2007; chiang et al., 2008) tries to squeeze as many features as possible from a relatively small dataset."
+29,"These larger rules have been shown to substantially improve translation accuracy (galley et al., 2006; deneefe et al., 2007)."
+32,"Hiero (chiang, 2005) is a hierarchical, string-to- string translation system."
+34,The baseline model includes 12 features whose weights are optimized using mert.
+35,"Two of the features are n-gram language models, which require intersecting the synchronous cfg with finite-state automata representing the language models."
+36,"This grammar can be parsed efficiently using cube pruning (chiang, 2007)."
+39,"Following previous work in statistical mt (brown et al., 1993), we envision a noisy-channel model in which a language model generates english, and then a translation model transforms english trees into chinese."
+42,"From this data, we use the the ghkm minimal-rule extraction algorithm of (galley et al., 2004) to yield rules like: np-c(x0:npb pp(in(of x1:npb)) ↔ x1 de x0 though this rule can be used in either direction, here we use it right-to-left (chinese to english)."
+49,"Then we use a cky-style parser (yamada and knight, 2002; galley et al., 2006) with cube pruning to decode new sentences."
+50,We include two other techniques in our baseline.
+51,"To get more general translation rules, we restructure our english training trees using expectation- maximization (wang et al., 2007), and to get more specific translation rules, we relabel the trees with up to 4 specialized versions of each nonterminal symbol, again using expectation-maximization and the split/merge technique of petrov et al."
+53,"We incorporate all our new features into a linear model (och and ney, 2002) and train them using mira (crammer et al., 2006), following previous work (watanabe et al., 2007; chiang et al., 2008)."
+64,"For example, a rule that has a variable of type in (preposition) needs another rule rooted with in to fill the position."
+75,"Though the syntax-based system uses good-turing discounting when computing the p(e, c) feature, we find, as noted above, that it uses quite a few one-count rules, suggesting that their probabilities have been overestimated."
+78,A rule like: in(at) ↔ zai will have feature rule-root-in set to 1 and all other rule-root features set to 0.
+80,Even though the rule root features are locally attached to individual rules—and therefore cause no additional problems for the decoder search—they are aimed at problematic rule/rule interactions.
+83,So we can add a feature that penalizes any rule in which a pp dominates a vbn and np-c.
+89,"Sample syntax- based insertion rules are: npb(dt(the) x0:nn) ↔ x0 s(x0:np-c vp(vbz(is) x1:vp-c)) ↔ x0 x1 we notice that our decoder, however, frequently fails to insert words like is and are, which often have no equivalent in the chinese source."
+90,"We also notice that the-insertion rules sometimes have a good effect, as in the translation “in the bloom of youth,” but other times have a bad effect, as in “people seek areas of the conspiracy.” each time the decoder uses (or fails to use) an insertion rule, it incurs some risk."
+92,"We therefore provide mira with a feature for each of the most common english words appearing in insertion rules, e.g., insert-the and insert-is"
+102,"To remedy this problem, chiang et al."
+103,"(2008) introduce a structural distortion model, which we include in our experiment."
+104,Our syntax-based baseline includes the generative version of this model already.
+109,These features are somewhat similar to features used by watanabe et al.
+111,"(2007); here, we are incorporating some of its features directly into the translation model."
+112,"For our experiments, we used a 260 million word chinese/english bitext."
+116,6 40.6∗∗ table 1: adding new features with mira significantly improves translation accuracy.
+121,"For hiero, rules with up to two nonterminals were extracted from a 38 million word subset and phrasal rules were extracted from the remainder of the training data."
+126,"For the source-side syntax features, we used the berkeley parser (petrov et al., 2006) to parse the chinese side of both sets."
+136,How did the various new features improve the translation quality of our two systems?
+138,"For these features, we used slightly different schemes for the two systems, shown in table 2 with their learned feature weights."
+144,Table 3 shows word-insertion feature weights.
+145,The system rewards insertion of forms of be; examples −0.16 prn −0.15 npb −0.13 rb −0.12 sbar-c −0.12 vp-c-bar−0.11rrb
+150,Inserting the outside table 4: weights learned for employing rules whose english sides are rooted at particular syntactic categories.
+152,"We also note that the system learns to punish unmotivated insertions of commas and periods, which get into our grammar via quirks in the mt training data."
+153,Table 4 shows weights for rule-overlap features.
+165,↔ x3 x4 x2 x0 x1 x5 it is therefore difficult to come up with a straightforward feature to address the problem.
+166,"However, when we apply mira with the features already listed, these translation errors all disappear, as demon 38.5 38 37.5 37 36.5 36 35.5 35 tune test 0 5 10 15 20 25 epoch strated by examples 4–5 in figure 1."
+172,"We do not have space for a fuller analysis, but we note that the specific effects we describe above account for only part of the overall b improvement."
+174,In table 6 are shown feature weights learned for the word-context features.
+176,"Many of the penalties seem to discourage spurious insertion or deletion of frequent words (for, ’s, said, parentheses, and quotes)."
+181,This seems in line with the finding of watanabe et al.
+182,"(2007) that with on the order of 10,000 features, overfitting is possible, but we can still improve accuracy on new data."
+186,We have described a variety of features for statistical machine translation and applied them to syntax- based and hierarchical systems.
+187,"We saw that these features, discriminatively trained using mira, led to significant improvements, and took a closer look at the results to see how the new features qualitatively improved translation quality."
+189,"First, we have shown that these new features can improve the performance even of top-scoring mt systems."
+191,"When training over 10,000 features on a modest amount of data, we, like watanabe et al."
+192,"(2007), did observe overfitting, yet saw improvements on new data."
+195,1 mert: the united states pending israeli clarification on golan settlement plan.
+215,"Bonus f e context −1.19 <unk> <unk> f−1 = ri ‘day’ −1.01 <unk> <unk> f−1 = ( −0.84 , that f−1 = shuo ‘say’ −0.82 yue ‘month’ <unk> f+1 = <unk> −0.78 "" "" f−1 = <unk> −0.76 "" "" f+1 = <unk> −0.66 <unk> <unk> f+1 = nian ‘year’ −0.65 , that f+1 = <unk>"

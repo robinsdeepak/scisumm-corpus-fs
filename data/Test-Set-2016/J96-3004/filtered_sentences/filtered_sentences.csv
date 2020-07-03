@@ -1,0 +1,145 @@
+id,sentence
+2,The initial stage of text analysis for any nlp task usually involves the tokenization of the input into words.
+4,"In various asian languages, including chinese, on the other hand, whitespace is never used to delimit words, so one must resort to lexical information to ""reconstruct"" the word-boundary information."
+6,"The model segments chinese text into dictionary entries and words derived by various productive lexical processes, and--since the primary intended application of this model is to text-to-speech synthesis--provides pronunciations for these words."
+8,"Any nlp application that presumes as input unrestricted text requires an initial phase of text analysis; such applications involve problems as diverse as machine translation, information retrieval, and text-to-speech synthesis (tis)."
+9,An initial step of any text­ analysis task is the tokenization of the input into words.
+10,"For a language like english, this problem is generally regarded as trivial since words are delimited in english text by whitespace or marks of punctuation."
+18,"Whether a language even has orthographic words is largely dependent on the writing system used to represent the language (rather than the language itself); the notion ""orthographic word"" is not universal."
+25,Immediately by a romanization into the pinyin transliteration scheme; numerals following each pinyin syllable represent tones.
+27,"In the pinyin transliterations a dash(-) separates syllables that may be considered part of the same phonological word; spaces are used to separate plausible phonological words; and a plus sign  is used, where relevant, to indicate morpheme boundaries of interest."
+32,"Thus, if one wants to segment words-for any purpose-from chinese sentences, one faces a more difficult task than one does in english since one cannot use spacing as a guide."
+37,"Many hanzi have more than one pronunciation, where the correct."
+38,"Pronunciation depends upon word affiliation: tfj is pronounced deo when it is a prenominal modification marker, but di4 in the word §tfj mu4di4 'goal'; fl; is normally ganl 'dry,' but qian2 in a person's given name."
+41,"For example, in northern dialects (such as beijing), a full tone  is changed to a neutral tone (0) in the final syllable of many words: jll donglgual 'winter melon' is often pronounced donglguao."
+43,Tis systems in general need to do more than simply compute the.
+44,Pronunciations of individual words; they also need to compute intonational phrase boundaries in long utterances and assign relative prominence to words in those utterances.
+45,It has been shown for english  that grammatical part of speech provides useful information for these tasks.
+46,"Given that part-of-speech labels are properties of words rather than morphemes, it follows that one cannot do part-of-speech assignment without having access to word-boundary information."
+50,"A minimal requirement for building a chinese word segmenter is obviously a dictionary; furthermore, as has been argued persuasively by fung and wu (1994), one will perform much better at segmenting text by using a dictionary constructed with text of the same genre as the text to be segmented."
+58,"In this paper we present a stochastic finite-state model for segmenting chinese text into words, both words found in a (static) lexicon as well as words derived via the above-mentioned productive processes."
+60,The model incorporates various recent techniques for incorporating and manipulating linguistic knowledge using finite-state transducers.
+61,"It also incorporates the good-turing method (baayen 1989; church and gale 1991) in estimating the likelihoods of previously unseen con­ structions, including morphological derivatives and personal names."
+68,"The most accurate characterization of chinese writing is that it is morphosyllabic (defrancis 1984): each hanzi represents one morpheme lexically and semantically, and one syllable phonologi­ cally."
+77,"As we shall argue, the semantic class affiliation of a hanzi constitutes useful information in predicting its properties."
+78,"There is a sizable literature on chinese word segmentation: recent reviews include wang, su, and mo (1990) and wu and tseng (1993)."
+79,"Roughly speaking, previous work can be divided into three categories, namely purely statistical approaches, purely lexi­ cal rule-based approaches, and approaches that combine lexical information with sta­ tistical information."
+82,"In that work, mutual information was used to decide whether to group adjacent hanzi into two-hanzi words."
+83,Mutual information was shown to be useful in the segmentation task given that one does not have a dictionary.
+84,"A related point is that mutual information is helpful in augmenting existing electronic dictionaries, (cf."
+90,(see sproat and shih 1995.)
+92,"Church and hanks [1989]), and we have used lists of character pairs ranked by mutual information to expand our own dictionary."
+93,Nonstochastic lexical-knowledge-based approaches have been much more numer­ ous.
+95,The first concerns how to deal with ambiguities in segmentation.
+97,"The most popular approach to dealing with seg­ mentation ambiguities is the maximum matching method, possibly augmented with further heuristics."
+99,"Papers that use this method or minor variants thereof include liang (1986), li et al."
+100,"(1991}, gu and mao (1994), and nie, jin, and hannan (1994)."
+101,"The simplest version of the maximum matching algorithm effectively deals with ambiguity by ignoring it, since the method is guaranteed to produce only one segmentation."
+102,Methods that allow multiple segmentations must provide criteria for choosing the best segmentation.
+103,"Some approaches depend upon some form of con­ straint satisfaction based on syntactic or semantic features (e.g., yeh and lee [1991], which uses a unification-based approach)."
+104,"Others depend upon various lexical heuris­ tics: for example chen and liu (1992) attempt to balance the length of words in a three-word window, favoring segmentations that give approximately equal length for each word."
+105,"Methods for expanding the dictionary include, of course, morphological rules, rules for segmenting personal names, as well as numeral sequences, expressions for dates, and so forth (chen and liu 1992; wang, li, and chang 1992; chang and chen 1993; nie, jin, and hannan 1994)."
+109,More complex approaches such as the relaxation technique have been applied to this problem fan and tsai (1988}.
+111,"Several papers report the use of part-of-speech information to rank segmentations (lin, chiang, and su 1993; peng and chang 1993; chang and chen 1993); typically, the probability of a segmentation is multiplied by the probability of the tagging(s) for that segmentation to yield an estimate of the total probability for the analysis."
+112,"Statistical methods seem particularly applicable to the problem of unknown-word identification, especially for constructions like names, where the linguistic constraints are minimal, and where one therefore wants to know not only that a particular se­ quence of hanzi might be a name, but that it is likely to be a name with some probabil­ ity."
+113,Several systems propose statistical methods for handling unknown words (chang et al
+114,"1992; lin, chiang, and su 1993; peng and chang 1993)."
+115,"Some of these approaches (e.g., lin, chiang, and su [1993]) attempt to identify unknown words, but do not ac­ tually tag the words as belonging to one or another class of expression."
+118,"Following sproat and shih (1990), performance for chinese segmentation systems is generally reported in terms of the dual measures of precision and recalp it is fairly standard to report precision and recall scores in the mid to high 90% range."
+119,"However, it is almost universally the case that no clear definition of what constitutes a ""correct"" segmentation is given, so these performance measures are hard to evaluate."
+120,"Indeed, as we shall show in section 5, even human judges differ when presented with the task of segmenting a text into words, so a definition of the criteria used to determine that a given segmentation is correct is crucial before one can interpret such measures."
+122,"For example chen and liu (1992) report precision and recall rates of over 99%, but this counts only the words that occur in the test corpus that also occur in their dictionary."
+123,"Besides the lack of a clear definition of what constitutes a correct segmentation for a given chinese sentence, there is the more general issue that the test corpora used in these evaluations differ from system to system, so meaningful comparison between systems is rendered even more difficult."
+124,The major problem for all segmentation systems remains the coverage afforded by the dictionary and the lexical rules used to augment the dictionary to deal with unseen words.
+126,"Furthermore, even the size of the dictionary per se is less important than the appropriateness of the lexicon to a particular test corpus: as fung and wu (1994) have shown, one can obtain substantially better segmentation by tailoring the lexicon to the corpus to be segmented."
+127,Chinese word segmentation can be viewed as a stochastic transduction problem.
+137,"Then define the best segmentation to be the cheapest or best path in id(i) o d* (i.e., id(i) composed with the transitive closure of 0).6 consider the abstract example illustrated in figure 2."
+141,0 d/ nc 5.0 the minimal dictionary encoding this information is represented by the wfst in figure 2(a).
+144,"This wfst represents the segmentation of the text into the words ab and cd, word boundaries being marked by arcs mapping between f and part-of-speech labels."
+156,7 big 5 is the most popular chinese character coding standard in use in taiwan and hong kong.
+163,"Word frequencies are estimated by a re-estimation procedure that involves apply­ ing the segmentation algorithm presented here to a corpus of 20 million words,8 using 8 our training corpus was drawn from a larger corpus of mixed-genre text consisting mostly of."
+166,"A set of initial estimates of the word frequencies.9 in this re-estimation procedure only the entries in the base dictionary were used: in other words, derived words not in the base dictionary and personal and foreign names were not used."
+168,"Clearly this is not the only way to estimate word-frequencies, however, and one could consider applying other methods: in partic­ ular since the problem is similar to the problem of assigning part-of-speech tags to an untagged corpus given a lexicon and some initial estimate of the a priori probabilities for the tags, one might consider a more sophisticated approach such as that described in kupiec (1992); one could also use methods that depend on a small hand-tagged seed corpus, as suggested by one reviewer."
+169,"In any event, to date, we have not compared different methods for deriving the set of initial frequency estimates."
+170,"Note also that the costs currently used in the system are actually string costs, rather than word costs."
+171,"This is because our corpus is not annotated, and hence does not distinguish between the various words represented by homographs, such as, which could be /adv jiangl 'be about to' orinc jiang4 '(military) general'-as in 1j\xiao3jiang4 'little general.'"
+183,"One class comprises words derived by productive morphologi­ cal processes, such as plural noun formation using the suffix ir, mend."
+185,The morphological anal­ysis itself can be handled using well-known techniques from finite-state morphol 9 the initial estimates are derived from the frequencies in the corpus of the strings of hanzi making up.
+190,"However, for our purposes it is not sufficient to repre­ sent the morphological decomposition of, say, plural nouns: we also need an estimate of the cost of the resulting word."
+191,For derived words that occur in our corpus we can estimate these costs as we would the costs for an underived dictionary entry.
+192,"So, 1: f, xue2shengl+men0 (student+pl) 'students' occurs and we estimate its cost at 11.43; similarly we estimate the cost of f, jiang4+men0 (general+pl) 'generals' (as in 'j' f, xiao3jiang4+men0 'little generals'), at 15.02."
+193,"But we also need an estimate of the probability for a non-occurring though possible plural form like i¥jj1l.f, nan2gua1-men0 'pumpkins.'"
+196,"For irt the good-turing estimate just discussed gives us an estimate of p(unseen(f,) i f,)-the probability of observing a previously unseen instance of a construction in ft given that we know that we have a construction in f,."
+197,"This good­ turing estimate of p(unseen(f,) if,) can then be used in the normal way to define the probability of finding a novel instance of a construction in ir, in a text: p(unseen(f,)) = p(unseen(f,) i f,) p(fn here p(ir,) is just the probability of any construction in ft as estimated from the frequency of such constructions in the corpus."
+201,Figure 5 shows how this model is implemented as part of the dictionary wfst.
+206,Note that the backoff model assumes that there is a positive correlation between the frequency of a singular noun and its plural.
+207,An analysis of nouns that occur in both the singular and the plural in our database reveals that there is indeed a slight but significant positive correlation-r2
+208,This suggests that the backoff model is as reasonable a model as we can use in the absence of further information about the expected cost of a plural form.
+209,"10 chinese speakers may object to this form, since the suffix f, mend (pl) is usually restricted to."
+211,"However, it is possible to personify any noun, so in children's stories or fables."
+218,"The difficulty is that given names can consist, in principle, of any hanzi or pair of hanzi, so the possible given names are limited only by the total number of hanzi, though some hanzi are certainly far more likely than others."
+219,"For a sequence of hanzi that is a possible name, we wish to assign a probability to that sequence qua name."
+220,"We can model this probability straightforwardly enough with a probabilistic version of the grammar just given, which would assign probabilities to the individual rules."
+222,"G1 and g2 are hanzi, we can estimate the probability of the sequence being a name as the product of: • the probability that a word chosen randomly from a text will be a name-p(rule 1), and • the probability that the name is of the form 1hanzi-family 2hanzi-given-p(rule 2), and • the probability that the family name is the particular hanzi f1-p(rule 6), and • the probability that the given name consists of the particular hanzi g1 and g2-p(rule 9) this model is essentially the one proposed in chang et al."
+232,"Assign a uniform small cost; but we know that some unseen hanzi are merely acci­ dentally missing, whereas others are missing for a reason-for example, because they have a bad connotation."
+233,"As we have noted in section 2, the general semantic class to which a hanzi belongs is often predictable from its semantic radical."
+236,We can better predict the probability of an unseen hanzi occurring in a name by computing a within-class good-turing estimate for each radical class.
+251,"However, there is a strong relationship between ni1s and the number of hanzi in the class."
+255,"This class-based model gives reasonable results: for six radical classes, table 1 gives the estimated cost for an unseen hanzi in the class occurring as the second hanzi in a double given name."
+257,4.5 transliterations of foreign words.
+258,Foreign names are usually transliterated using hanzi whose sequential pronunciation mimics the source language pronunciation of the name.
+259,"Since foreign names can be of any length, and since their original pronunciation is effectively unlimited, the identi­ fication of such names is tricky."
+260,"Fortunately, there are only a few hundred hanzi that are particularly common in transliterations; indeed, the commonest ones, such as e"
+263,"As with personal names, we also derive an estimate from text of the probability of finding a transliterated name of any kind (ptn)."
+271,The first is an evaluation of the system's ability to mimic humans at the task of segmenting text into word-sized units; the second evaluates the proper-name identification; the third measures the performance on morphological analysis.
+272,To date we have not done a separate evaluation of foreign-name recognition.
+275,"The problem with these styles of evaluation is that, as we shall demonstrate, even human judges do not agree perfectly on how to segment a given text."
+283,"A greedy algorithm (or maximum-matching algorithm), gr: proceed through the sentence, taking the longest match with a dictionary entry at each point."
+284,"An anti-greedy algorithm, ag: instead of the longest match, take the."
+287,Two measures that can be used to compare judgments are: 1.
+301,"In addition to the automatic methods, ag, gr, and st, just discussed, we also added to the plot the values for the current algorithm using only dictionary entries (i.e., no productively derived words or names)."
+303,"As can be seen, gr and this ""pared-down"" statistical method perform quite similarly, though the statistical method is still slightly better.16 ag clearly performs much less like humans than these methods, whereas the full statistical algorithm, including morphological derivatives and names, performs most closely to humans among the automatic methods."
+306,The breakdown of the different types of words found by st in the test corpus is given in table 3.
+307,"Clearly the percentage of productively formed words is quite small (for this particular corpus), meaning that dictionary entries are covering most of the 15 gr is .73 or 96%.."
+308,"16 as one reviewer points out, one problem with the unigram model chosen here is that there is still a"
+312,"As the reviewer also points out, this is a problem that is shared by, e.g., probabilistic context-free parsers, which tend to pick trees with fewer nodes."
+317,Table 3 classes of words found by st for the test corpus.
+324,"However, this result is consistent with the results of ex­ periments discussed in wu and fung (1994)."
+325,Wu and fung introduce an evaluation method they call nk-blind.
+335,"However, we have reason to doubt chang et al.'s performance claims."
+337,Include a list of about 60 sentence fragments that exemplify various categories of performance for their system.
+339,"On a set of 11 sentence fragments-the a set-where they reported 100% recall and precision for name identification, we had 73% recall and 80% precision."
+342,"Note that it is in precision that our over­ all performance would appear to be poorer than the reported performance of chang et al., yet based on their published examples, our system appears to be doing better precisionwise."
+343,Thus we have some confidence that our own performance is at least as good as that of chang et al.
+344,"In a more recent study than chang et al., wang, li, and chang (1992) propose a surname-driven, non-stochastic, rule-based system for identifying personal names.17 wang, li, and chang also compare their performance with chang et al.'s system."
+345,"Fortunately, we were able to obtain a copy of the full set of sentences from chang et al"
+346,"On which wang, li, and chang tested their system, along with the output of their system.18 in what follows we will discuss all cases from this set where our performance on names differs from that of wang, li, and chang."
+349,The first issue relates to the completeness of the base lexicon.
+352,"This is a rather important source of errors in name identifi­ cation, and it is not really possible to objectively evaluate a name recognition system without considering the main lexicon with which it is used."
+353,17 they also provide a set of title-driven rules to identify names when they occur before titles such as $t
+356,"Our system does not currently make use of titles, but it would be straightforward to do so within the finite-state framework that we propose."
+360,"Paper, and is missing 6 examples from the a set."
+361,"19 we note that it is not always clear in wang, li, and chang's examples which segmented words."
+364,"Table 4 differences in performance between our system and wang, li, and chang (1992)."
+376,"In table 5 we present results from small test cor­ pora for the productive affixes handled by the current version of the system; as with names, the segmentation of morphologically derived words is generally either right or wrong."
+377,"The first four affixes are so-called resultative affixes: they denote some prop­ erty of the resultant state of a verb, as in e7 wang4bu4-liao3 (forget-not-attain) 'cannot forget.'"
+379,In this paper we have argued that chinese word segmentation can be modeled ef­ fectively using weighted finite-state transducers.
+381,"Other kinds of productive word classes, such as company names, abbreviations (termed fijsuolxie3 in mandarin), and place names can easily be 20 note that 7 in e 7 is normally pronounced as leo, but as part of a resultative it is liao3.."
+383,"(for some recent corpus-based work on chinese abbreviations, see huang, ahrens, and chen [1993].)"
+385,"However, some caveats are in order in comparing this method (or any method) with other approaches to seg­ mentation reported in the literature."
+395,"The major problem for our seg­ menter, as for all segmenters, remains the problem of unknown words (see fung and wu [1994])."
+407,"Gan's solution depends upon a fairly sophisticated language model that attempts to find valid syntactic, semantic, and lexical relations between objects of various linguistic types (hanzi, words, phrases)."
+412,"While gan's system incorporates fairly sophisticated models of various linguistic information, it has the drawback that it has only been tested with a very small lexicon (a few hundred words) and on a very small test set (thirty sentences); there is therefore serious concern as to whether the methods that he discusses are scalable."
+414,For the examples given in (1) and (2) this certainly seems possible.
+420,"However, there is again local grammatical information that should favor the split in the case of (1a): both .ma3 'horse' and .ma3 lu4 are nouns, but only .ma3 is consistent with the classifier pil, the classifier for horses.21 by a similar argument, the preference for not splitting , lm could be strengthened in (lb) by the observation that the classifier 1'1* tiao2 is consistent with long or winding objects like , lm ma3lu4 'road' but not with,ma3 'horse.'"
+421,"Note that the sets of possible classifiers for a given noun can easily be encoded on that noun by grammatical features, which can be referred to by finite-state grammatical rules."
+422,"Thus, we feel fairly confident that for the examples we have considered from gan's study a solution can be incorporated, or at least approximated, within a finite-state framework."
+423,"With regard to purely morphological phenomena, certain processes are not han­ dled elegantly within the current framework any process involving reduplication, for instance, does not lend itself to modeling by finite-state techniques, since there is no way that finite-state networks can directly implement the copying operations required."
+424,"Mandarin exhibits several such processes, including a-not-a question formation, il­ lustrated in (3a), and adverbial reduplication, illustrated in (3b): 3."
+427,"The only way to handle such phenomena within the framework described here is simply to expand out the reduplicated forms beforehand, and incorporate the expanded forms into the lexical transducer."
+428,"Despite these limitations, a purely finite-state approach to chinese word segmentation enjoys a number of strong advantages."
+430,"The use of weighted transducers in particular has the attractive property that the model, as it stands, can be straightforwardly interfaced to other modules of a larger speech or natural language system: presumably one does not want to segment chinese text for its own sake but instead with a larger purpose in mind."
+431,"As described in sproat (1995), the chinese segmenter presented here fits directly into the context of a broader finite-state model of text analysis for speech synthesis."
+432,"Furthermore, by inverting the transducer so that it maps from phonemic transcriptions to hanzi sequences, one can apply the segmenter to other problems, such as speech recognition (pereira, riley, and sproat 1994)."
+433,"Since the transducers are built from human-readable descriptions using a lexical toolkit (sproat 1995), the system is easily maintained and extended."
+437,Mohri [1995]) shows promise for improving this situation.

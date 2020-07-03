@@ -1,0 +1,69 @@
+id,sentence
+2,"In this paper we specifically address questions of polysemy with respect to verbs, and how regular extensions of meaning can be achieved through the adjunction of particular syntactic phrases."
+4,"Current approaches to english classifica­ tion, levin classes and wordnet, have limita­ tions in their applicability that impede their utility as general classification schemes."
+5,"We present a refinement of levin classes, intersec­ tive sets, which are a more fine-grained clas­ sification and have more coherent sets of syn­ tactic frames and associated semantic compo­ nents."
+6,We have preliminary indications that the membership of our intersective sets will be more compatible with wordnet than the orig­ inal levin classes.
+7,"We also have begun to ex­ amine related classes in portuguese, and find that these verbs demonstrate similarly coherent syntactic and semantic properties."
+8,The difficulty of achieving adequate hand­ crafted semantic representations has limited the field of natural language processing to applica­ tions that can be contained within well-defined subdomains.
+9,The only escape from this lim­ itation will be through the use of automated or semi-automated methods of lexical acquisi­ tion.
+15,"In this paper we specifically address questions of polysemy with respect to verbs, and how regular extensions of meaning can be achieved through the adjunction of particular syntactic phrases."
+16,"We base these regular extensions on a fine-grained variation on levin classes, inter­ sective levin classes, as a source of semantic components associated with specific adjuncts."
+18,The difficulty of determining a suitable lexical representation becomes multi­ plied when more than one language is involved and attempts are made to map between them.
+19,"Preliminary investigations have indicated that a straightforward translation of levin classes into other languages is not feasible (jones et al., 1994), (nomura et al., 1994), (saint-dizier, 1996)."
+21,"Two current approaches to english verb classi­ fications are wordnet (miller et al., 1990) and levin classes (levin, 1993)."
+26,"Wordnet was de­ signed principally as a semantic network, and contains little syntactic information."
+27,"Levin verb classes are based on the ability of a verb to occur or not occur in pairs of syntac­ tic frames that are in some sense meaning pre­ serving (diathesis alternations) (levin, 1993)."
+28,The distribution of syntactic frames in which a verb can appear determines its class member­ ship.
+29,The fundamental assumption is that the syntactic frames are a direct reflection of the un­ derlying semantics.
+40,"It is not clear how much wordnet synsets should be expected to overlap with levin classes, and preliminary indications are that there is a wide discrepancy (dorr and jones, 1996), (jones and onyshkevych, 1997), (dorr, 1997)."
+41,"However, it would be useful for the wordnet senses to have access to the detailed syntactic information that the levin classes contain, and it would be equally useful to have more guidance as to when membership in a levin class does in fact indicate shared seman­ tic components."
+43,The association of sets of syntactic frames with individual verbs in each class is not as straightforward as one might suppose.
+48,"We augmented the existing database of levin semantic classes with a set of intersective classes, which were created by grouping to­ gether subsets of existing classes with over­ lapping members."
+51,"This filter al­ lowed us to reject the potential intersective class that would have resulted from combining the re­ move verbs with the scribble verbs, for example."
+53,"On the other hand, the scribble verbs do form an intersective class with the perfor­ mance verbs, since paint and write are also in both classes, in addition to draw."
+62,N dm (subset criterion).
+65,"Simultaneously, the verb was removed from the membership lists of those existing classes."
+70,"Many of the verbs (e.g., draw, pull, push, shove, tug, yank) that do not have an inherent semantic component of ""separating"" belong to this class because of the component of force in their meaning."
+72,The ad­ junction of the apart adverb adds a change of state semantic component with respect to the object which is not present otherwise.
+73,These fringe split verbs appear in several other inter­ sective classes that highlight the force aspect of their meaning.
+76,"Depending on the par­ ticular syntactic frame in which they appear, members of this intersective class (pull, push, shove, tug, kick, draw, yank) * can be used to exemplify any one (or more) of the the compo­ nent levin classes."
+77,Nora pushed the package to pamela..
+79,Nora pushed at/against the package..
+80,"• although kick is not listed as a verb of exerting force, it displays all the alternations that define this class."
+82,"The list of members for each levin verb class is not always complete, so to check if a particular verb belongs to a class it is better to check that the verb exhibits all the alternations that de­ fine the class."
+83,"Since intersective classes were built using membership lists rather than the set of defining alterna­ tions, they were similarly incomplete."
+93,However the simultaneous potential of mutually exclusive extensions is not a problem.
+96,Thus they cannot take the conative al­ ternation.
+98,"Even though the levin verb classes are defined by their syntactic behavior, many reflect seman­ tic distinctions made by wordnet, a classifica­ tion hierarchy defined in terms of purely se­ mantic word relations (synonyms, hypernyms, etc.)."
+101,"The original intersective class (cut, hack, hew, saw) exhibits alternations of both parent classes, and has been augmented with chip, clip, slash, snip since these cut verbs also display the syntactic properties of split verbs."
+109,"Levin verb classes are based on an underlying lat­ tice of partial semantic descriptions, which are manifested indirectly in diathesis alternations."
+110,"Whereas high level semantic relations (syn­ onym, hypernym) are represented directly in wordnet, they can sometimes be inferred from the intersection between levin verb classes, as with the cut/split class."
+113,"In addition, only one verb (pull) has a wordnet sense cor­ responding to the change of state - separation semantic component associated with the split class."
+114,"The fact that the split sense for these verbs does not appear explicitly in wordnet is not surprising since it is only an extended sense of the verbs, and separation is inferred only when the verb occurs with an appropriate adjunct, such as apart."
+115,"However, apart can also be used with other classes of verbs, including many verbs of motion."
+116,"To explicitly list separa tion as a possible sense for all these verbs would be extravagant when this sense can be gener­ ated from the combination of the adjunct with the force (potential cause of change of physical state) or motion (itself a special kind of change of state, i.e., of position) semantic component of the verb."
+117,"Wordnet does not currently provide a consistent treatment of regular sense exten­ sion (some are listed as separate senses, others are not mentioned at all)."
+118,"It would be straight­ forward to augment it with pointers indicating which senses are basic to a class of verbs and which can be generated automatically, and in­ clude corresponding syntactic information."
+123,"The two classes differ in that roll verbs relate to manners of motion charac­ teristic of inanimate entities, while run verbs describe manners in which animate entities can move."
+126,"Some verbs can be used to describe motion of both animate and inanimate objects, and thus appear in both roll and run verb classes."
+128,"Verbs in the slide/roll/run intersec­ tion are also allowed to appear in the dative alternation (carla slid the book to dale, carla slid dale the book), in which the sense of change of location is extended to change of possession.when used intransitively with a path prepo sitional phrase, some of the manner of motion verbs can take on a sense of pseudo-motional existence, in which the subject does not actu­ ally move, but has a shape that could describe a path for the verb (e.g., the stream twists through the valley)."
+129,These verbs are listed in the intersective classes with meander verbs of existence.
+133,"However, there are some interesting differences in which sense extensions are allowed."
+135,We have made a preliminary study of the por­ tuguese translation of the carry verb class.
+136,"As in english, these verbs seem to take different alter­ nations, and the ability of each to participate in an alternation is related to its semantic content."
+137,"Table 1 shows how these portuguese verbs natu­ rally cluster into two different subclasses, based on their ability to take the conative and apart alternations as well as path prepositions."
+138,These subclasses correspond very well to the english subclasses created by the intersective class.
+145,We also investigated the portuguese translation of some intersective classes of motion verbs.
+153,"For these verbs, we have the in­ duced action alternation by using the light verb fazer (make) before the verb, as in maria fez o barco flutuar (mary floated the boat)."
+155,"The exception to this, as just noted, is flutuar (float)."
+157,"We have presented a refinement of levin classes, intersective classes, and discussed the potential for mapping them to wordnet senses."
+158,"Whereas each wordnet synset is hierarchicalized accord­ ing to only one aspect (e.g., result, in the case of cut), levin recognizes that verbs in a class may share many different semantic features, without designating one as primary."
+160,"Given the incompleteness of the list of members of levin classes, each verb must be examined to see whether it exhibits all the al­ ternations of a class."
+161,"This might be approxi­ mated by automatically extracting the syntac­ tic frames in which the verb occurs in corpus data, rather than manual analysis of each verb, as was done in this study."
+165,"First, since our experi­ ment was based on a translation from english to portuguese, we can expect that other verbs in portuguese would share the same alternations, so the classes in portuguese should by no means be considered complete."
+166,We will be using re­ sources such as dictionaries and online corpora to investigate potential additional members of our classes.
+167,"Second, since the translation map­ pings may often be many-to-many, the alterna re bat er (bo unc e) flut uar (flo at) rola r (rol l) desl izar (sli de) deri var (dr ift) pla nar (gli de) dati ve • c o n a t i v e c a u s"
+176,"In this experiment, we have tried to choose the portuguese verb that is most closely related to the description of the english verb in the levin class."
+177,"We expect these cross-linguistic features to be useful for capturing translation generalizations between languages as discussed in the litera­ ture (palmer and rosenzweig, 1996), (copes­ take and sanfilippo, 1993), (dorr, 1997)."
+178,"In pursuing this goal, we are currently implement­ ing features for motion verbs in the english tree-adjoining grammar, tag (bleam et al., 1998)."
+179,"Tags have also been applied to por­ tuguese in previous work, resulting in a small portuguese grammar (kipper, 1994)."

@@ -1,0 +1,41 @@
+id,sentence
+4,Comparable corpora such as news documents of the same period from different news agencies are readily available.
+10,"Much research has been done on using parallel corpora to learn bilingual lexicons (melamed, 1997; moore, 2003)."
+11,"But parallel corpora are scarce resources, especially for uncommon lan guage pairs."
+12,Comparable corpora refer to texts that are not direct translation but are about the same topic.
+15,"Previous research efforts on acquiring translations from comparable corpora include (fung and yee, 1998; rapp, 1995; rapp, 1999)."
+19,"On the other hand, the work of (cao and li, 2002; fung and yee, 1998; koehn and knight, 2002; rapp, 1995; rapp, 1999) used the context of w to locate its translation in a second language."
+21,"Since both sources of information are complementary, the accuracy of our combined approach is better than the accuracy of using just context or transliteration information alone."
+27,"The work of (fung and yee, 1998; rapp, 1995; rapp, 1999) noted that if an english word e is the translation of a chinese word c , then the contexts of the two words are similar."
+35,"We employ the language modeling approach (ng, 2000; ponte and croft, 1998) for corresponding to that document translation of c"
+38,"On the other hand, when we only look at the word w itself, we can rely on the pronunciation of w to locate its translation."
+39,"We use a variant of within ir, there is a new approach to document retrieval called the language modeling approach (ponte & croft, 98)."
+47,"Specifically, our combination method is as follows: we examine the top m the language modeling approach to ir has been shown to give superior retrieval performance (ponte & croft, 98; ng, 2000), compared with traditional vector space model, and we adopt this approach in our current work."
+48,"To estimate p(q | d) , we use the approach of (ng, 2000)."
+56,/ ∏t ct ! can be omitted as this part depends on the query only and thus is the same for all the documents.
+69,"Since most chinese characters have only one pronunciation and hence one pinyin form, we assume that chinese character-to-pinyin mapping is one-to-one to simplify the problem."
+77,"Another difference is onaizan and knight, 2002b)."
+78,Knight and graehl (1998) proposed a probabilistic model for machine transliteration.
+82,Alonaizan and knight (2002b) suggested that pronunciation can be skipped and the target language letters can be mapped directly to source language letters.
+91,"To avoid accidentally using parallel texts, we did not use the texts of xinhua news agency them english translation candidate words."
+96,"We used a chineseenglish dictionary which contained about 10,000 entries for translating the words in the context."
+102,"The context of an english translation candidate word e, c (e) , was similarly collected."
+105,"So we first segmented chinese text with a chinese word segmenter that was based on maximum entropy modeling (ng and low, 2004)."
+107,"For each chinese source word, we ranked all its english translation candidate words according to the estimated p(c (c) | c (e))"
+119,"We call section 4), which was used to rank the english candidate words based on transliteration."
+132,We also investigated the effect of varying m
+141,Recall is somewhat difficult to estimate because we do not know whether the english translation of a chinese word appears in the english part of the corpus.
+142,We attempted to estimate recall by manually finding the english translations for all the chinese source words for the two periods dec 01 – dec 15 and dec 16 – dec 31 in the english part of the corpus.
+145,"Precision and recall for different values of m the past research of (fung and yee, 1998; rapp, 1995; rapp, 1999) utilized context information alone and was evaluated on different corpora from ours, so it is difficult to directly compare our current results with theirs."
+146,"Similarly, alonaizan and knight (2002a; 2002b) only made use of transliteration information alone and so was not directly comparable."
+151,"Since our method currently only considers unigram english words, we are not able to find translations for these words."
+152,But it is not difficult to extend our method to handle this problem.
+167,"As shown in table 3, using just context information alone, 10 chinese words (the first 10) have their correct english translations at rank one position."
+174,"On the other hand, the work of (cao and li, 2002; fung and yee, 1998; rapp, 1995; rapp, 1999) used only the context of w to locate its translation in a second language."
+176,"Koehn and knight (2002) attempted to combine multiple clues, including similar context and spelling."
+177,But their similar spelling clue uses the longest common subsequence ratio and works only for cognates (words with a very similar spelling).
+178,"The work that is most similar to ours is the recent research of (huang et al., 2004)."
+179,They attempted to improve named entity translation by combining phonetic and semantic information.
+180,Their contextual semantic similarity model is different from our language modeling approach to measuring context similarity.
+182,"They combined the two sources of information by weighting the two individual scores, whereas we made use of the average rank for combination."
+183,"In this paper, we proposed a new method to mine new word translations from comparable corpora, by combining context and transliteration information, which are complementary sources of information."

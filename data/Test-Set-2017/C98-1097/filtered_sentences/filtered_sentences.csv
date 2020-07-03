@@ -1,0 +1,39 @@
+id,sentence
+2,A method is presented for segmenting text into subtopic areas.
+3,The proportion of related pairwise words is calculated between adjacent windows of text to determine their lexical similarity.
+4,The lexical cohesion relations of reiteration and collocation are used to identify related words.
+5,"These relations are automatically located using a combination of three linguistic features: word repetition, collocation and relation weights."
+9,"Segmenting such data into distinct topics is useful for information retrieval, where only those segments relevant to a user's query can be retrieved."
+12,Previous work on text segmentation has used term matching to identify clusters of related text.
+13,"Salton and buckley (1992) and later, hearst (1994) extracted related text pmtions by matching high frequency terms."
+19,Another approach to text segmentation is the detection of semantically related words.
+20,"Hearst (1993) incorporated semantic information derived from wordnet but in later work reported that this information actually degraded word repetition results (hearst, 1994)."
+23,"Lexical cohesion relations (halliday and hasan, 1976) between words were identified in rt and used to construct lexical chains of related words in five texts (morris and hirst, 1991 )."
+24,"It was reported that the lexical chains closely correlated to the intentional structure (grosz and sidner, 1986) of the texts, where the start and end of chains coincided with the intention ranges."
+25,"However, rt does not capture all types of lexical cohesion relations."
+26,"In previous work, it was found that collocation (a lexical cohesion relation) was under-represented in the thesaurus."
+28,"Following morris and hirst's work, a segmentation algorithm was developed based on identifying lexical cohesion relations across a text."
+29,"The proposed algorithm is fully automated, and a quantitative measure of the association between words is calculated."
+30,This algorithm utilises linguistic features additional to those captured in the thesaurus to identify the other types of lexical cohesion relations that can exist in text.
+37,Grammatical cohesion is expressed through the grammatical relations in text such as ellipsis and conjunction.
+38,Lexical cohesion is expressed through the vocabulary used in text and the semantic relations between those words.
+41,"General noun's cohesive function is both grammatical and lexical, although halliday and hasan's analysis showed that this class plays a minor cohesive role."
+43,Reiteration is subdivided into four cohesive effects: word repetition (e.g
+52,"To automatically detect lexical cohesion tics between pairwise words, three linguistic features were considered: word repetition, collocation and relation weights."
+56,"These types can be identified using relation weights (jobbins and evett, 1998)."
+58,"An inflected word was reduced to its stem by look­ up in a lexicon (keenan and evett, 1989) comprising inflection and stem word pair records (e.g"
+61,Collocations were automatically located in a text by looking up pairwise words in this lexicon.
+66,"Relation weights: relation weights quantify the amount of semantic relation between words based on the lexical organisation of rt (jobbins and evett, 1995)."
+72,"Multiple sentences were compared because calculating lexical similarity between words is too fine (rotondo, 1984) and between individual sentences is unreliable (salton and buckley, 1991)."
+73,"Lexical similarity is calculated for each window comparison based on the proportion of related words, and is given as a normalised score."
+79,The lexical similarity score indicates the amount of lexical cohesion demonstrated by two windows.
+83,An investigation was conducted to determine whether the segmentation algorithm could reliably locate subject change in text.
+88,"Previous work has identified the breaks between concatenated texts to evaluate the performance of text segmentation algorithms (reynar, 1994; stairmand, 1997)."
+94,Discussion: the segmentation algorithm using the linguistic features word repetition and collocation in combination achieved the best result.
+98,"In this investigation, word repetition alone achieved better results than using either collocation or relation weights individually."
+111,"These metrics have tended to be adopted for the assessment of text segmentation algorithms, but they do not provide a scale of correctness (beeferman et al., 1997)."
+114,An error margin of two sentences either side of a segmentation point was used by hearst (1993) and reynar ( 1994) allowed three sentences.
+122,These results demonstrate that supplementing word repetition with other linguistic features can improve text segmentation.
+123,"As an example, a text segmentation algorithm developed by hearst ( 1994) based on word repetition alone attained inferior precision and recall rates of 0.66 and 0.61."
+128,Conclusion the text segmentation algorithm developed used three linguistic features to automatically detect lexical cohesion relations across windows.
+136,"Having located the related segments in text, a method of determining the subject of each segment could be developed, for example, for information retrieval purposes."
